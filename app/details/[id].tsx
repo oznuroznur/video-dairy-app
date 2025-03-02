@@ -56,21 +56,21 @@ const VideoDetail = () => {
         <View className="flex flex-row justify-around border border-light-border py-3 mt-5">
           <View className="flex flex-col items-center">
             <Camera fill="#F34900" width={24} height={24} />
-            <Text className="text-sm font-semibold text-center lowercase"> dk </Text>
+            <Text className="text-sm font-semibold text-center lowercase">{video.name}  </Text>
           </View>
           <View className="flex flex-col items-center">
             <Camera />
-            <Text className="text-sm font-semibold text-center"> min </Text>
+            <Text className="text-sm font-semibold text-center">{video.name}  </Text>
           </View>
         </View>
 
         <View className="my-12 px-5">
-          <Text className="text-main-color font-semibold text-base">Nasıl Yapılır?</Text>
-          <Text className="text-sm text-black font-normal mt-2">asd</Text>
+          <Text className="text-main-color font-semibold text-base">{video.name} </Text>
+          <Text className="text-sm text-black font-normal mt-2">{video.name} </Text>
         </View>
 
         <View className="mb-8 mx-4">
-          <Text className="text-main-color font-semibold text-base">Malzemeler</Text>
+          <Text className="text-main-color font-semibold text-base">{video.name} </Text>
         </View>
       </View>
     </ParallaxScrollView>

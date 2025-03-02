@@ -31,9 +31,11 @@ export const useVideoStore = create<VideoState>((set) => ({
 
   loadVideos: async () => {
     try {
+      console.log("Loading videos...");
       const storedVideos = await AsyncStorage.getItem("savedVideos");
       if (storedVideos) {
         set({ videos: JSON.parse(storedVideos) });
+        console.log("Videos loaded:", storedVideos);
       }
     } catch (error) {
       console.error("Error loading videos:", error);
