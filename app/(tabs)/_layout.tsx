@@ -14,7 +14,7 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].mainColor,
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
@@ -26,20 +26,24 @@ export default function TabLayout() {
           default: {},
         }),
       }}>
+         <Tabs.Screen
+        name="addVideo"
+        options={{
+          title: 'Add Video',
+          headerShown: true,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="video" color={color} />,
+        }}
+      />
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Video List',
+          headerShown: true,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="list.and.film" color={color} />,
         }}
       />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
+      
+    
     </Tabs>
   );
 }
