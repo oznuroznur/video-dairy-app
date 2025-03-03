@@ -32,12 +32,11 @@ const VideoDetail = () => {
 
   const { isPlaying } = useEvent(player, "playingChange", { isPlaying: player.playing });
 
-  // Tanstack Query mutation for video processing
+
   const cropMutation = useMutation({
     mutationFn: async ({ start, end, name, description }) => {
-      // Here you would implement the FFMPEG processing
-      // Example API call:
-      const response = await fetch('/api/process-video', {
+  
+      const response = await fetch('apiburayagelecek', {
         method: 'POST',
         body: JSON.stringify({
           videoUri: selectedVideo?.uri,
@@ -106,7 +105,6 @@ const VideoDetail = () => {
 
       <View className="p-4">
         {step === 1 ? (
-          // Step 1: Trim Selection
           <View>
             <Text className="text-lg font-bold mb-4">Select 5-Second Segment</Text>
             <Slider
@@ -131,7 +129,6 @@ const VideoDetail = () => {
             </View>
           </View>
         ) : (
-          // Step 2: Metadata
           <View>
             <Text className="text-lg font-bold mb-4">Add Video Details</Text>
             <TextInput
