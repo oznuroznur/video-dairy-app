@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import React, { useEffect } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import VideoCard from "@/components/home/VideoCard";
 import { useVideoStore } from "@/hooks/useVideoStore";
@@ -23,8 +23,15 @@ export const DATA = [
 
 const HomePage = () => {
 
-  const {videos} = useVideoStore();
+  const { videos, loadVideos } = useVideoStore();
   const router = useRouter();
+
+  useEffect(() => {
+    loadVideos();
+  }, []);
+
+
+
   return (
     <View className="flex-1 mx-auto container bg-violet-50 ">
       <View className="flex-1 p-4 pb-24">
@@ -36,13 +43,14 @@ const HomePage = () => {
     {videos.length === 0 ? (
         <Text className="text-gray-500 mt-2">No videos available.</Text>
       ) : (
-        <FlatList
+        <FlashList
           data={videos}
+          estimatedItemSize={200}
           keyExtractor={(item) => item.uri}
           renderItem={({ item }) => (
             <TouchableOpacity
-              className="p-3 bg-gray-300 my-2 rounded-md"
-              onPress={() => router.push(`/VideoDetail?uri=${encodeURIComponent(item.uri)}`)}
+              className="p-3 bg-white my-2 rounded-md"
+              onPress={() => router.push(`/details/${item.name}`)}
             >
              <VideoCard styles="shadow-sm" item={item} />
             </TouchableOpacity>

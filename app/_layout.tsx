@@ -43,7 +43,7 @@ export default function RootLayout() {
         options={{ 
         headerShown: true ,
         title: 'Details',
-      //  headerBackImageSource: require('../assets/images/back.png'),
+        headerBackTitle: 'Video List',
          }}  />
       </Stack>
       <StatusBar style="auto" />
